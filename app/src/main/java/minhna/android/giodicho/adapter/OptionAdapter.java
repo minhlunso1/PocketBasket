@@ -26,8 +26,8 @@ public class OptionAdapter extends ArrayAdapter<DialogOption> {
 	}
 	
 	private class ViewHolder {
-		ImageView icon;
-		TextView itemTitle;
+		private ImageView icon;
+		private TextView itemTitle;
 	}
 	
 	@Override

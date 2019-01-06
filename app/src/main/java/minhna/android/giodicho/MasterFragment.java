@@ -59,7 +59,6 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
     private boolean canBeSaved = true;
 
 	private ActionBar actionBar;
-	private Menu actionBarMenu;
 	private MenuItem menuAddItem;
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
@@ -115,6 +114,7 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 
 				@Override
 				public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+					//do nothing
 				}
 			});
 		}
@@ -148,12 +148,11 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
 		menuInflater.inflate(R.menu.action_bar_master, menu);
-		actionBarMenu=menu;
-		menuAddItem = actionBarMenu.getItem(0);
+		menuAddItem = menu.getItem(0);
 		notifyListview(1);
         if(state != null)
             getListView().onRestoreInstanceState(state);
-		super.onCreateOptionsMenu(actionBarMenu, menuInflater);
+		super.onCreateOptionsMenu(menu, menuInflater);
 	}
 		
 	@Override
@@ -163,7 +162,7 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 			int count = 0;
 			for (int i=0;i<data.size();i++){
 				if (data.get(i).isDone()){
-					datasource.deleteList(data.get(i).get_id());
+					datasource.deleteList(data.get(i).getId());
 					data.remove(i);
 					i--;
 					count++;
@@ -204,8 +203,9 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
         case android.R.id.home:
             mainActivity.toggleDrawerLeft();
             return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
@@ -248,7 +248,7 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 				if (id == 0) {//edit
 					Bundle bundle = new Bundle();
 					bundle.putBoolean("isEditListMode", true);
-					bundle.putLong("idList", data.get(position).get_id());
+					bundle.putLong("idList", data.get(position).getId());
 					bundle.putString("listTitle", data.get(position).getTitle());
 					bundle.putString("color", data.get(position).getColor());
 					bundle.putInt("listMeetQuantity", data.get(position).getMeetQuantity());
@@ -264,7 +264,7 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 					transaction.commit();
 					optionDialog.cancel();
 				} else if (id == 1) {//remove
-					if (datasource.deleteList(data.get(position).get_id()) > 0) {
+					if (datasource.deleteList(data.get(position).getId()) > 0) {
 						data.remove(position);
 						notifyListview(0);
 						updateLogoVisibility();
@@ -314,7 +314,7 @@ public class MasterFragment extends ListFragment implements OnClickListener, OnI
 		FragmentTransaction transaction = manager.beginTransaction();
 
 		Bundle bundle = new Bundle();
-		bundle.putLong("idList", data.get(position).get_id());
+		bundle.putLong("idList", data.get(position).getId());
 		bundle.putString("listTitle", data.get(position).getTitle());
 		bundle.putString("color", data.get(position).getColor());
 		bundle.putInt("listMeetQuantity", data.get(position).getMeetQuantity());

@@ -119,7 +119,7 @@ public class AddingItemActivity extends AppCompatActivity {
         
 		String itemNameStr = itemName.getText().toString().trim();
 		String description = itemDesc.getText().toString().trim();
-		if (itemNameStr.equals(""))
+		if (("").equals(itemNameStr))
 			itemNameStr = getResources().getString(R.string.itemNameHint);
 		String itemQuantityStr = itemQuantity.getText().toString();
 		if (itemQuantityStr.length()==0)

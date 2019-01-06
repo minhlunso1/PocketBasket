@@ -138,7 +138,7 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 
 		@Override
 		public void onDestroyActionMode(ActionMode mode) {
-			if (isEditListMode==false){
+			if (!isEditListMode){
 				updateColorComponents();
 				
 				listName=editTxtListName.getText().toString().trim();
@@ -287,7 +287,8 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 			        }
 			     })
 			    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-			        public void onClick(DialogInterface dialog, int which) { 
+			        public void onClick(DialogInterface dialog, int which) {
+			        	dialog.cancel();
 			        }
 			     })
 			    .setIcon(android.R.drawable.ic_dialog_alert)
@@ -321,8 +322,9 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 		case R.id.action_share:
 			callActionShare();
 			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 	
 	public void callPopupListener(){

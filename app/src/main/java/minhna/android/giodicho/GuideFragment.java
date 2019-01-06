@@ -18,8 +18,8 @@ public class GuideFragment extends Fragment implements OnClickListener, OnPageCh
 	private MainActivity mainActivity;	
 	private View guideView;
 	private ViewPager guideVP;
-	AppCompatButton backGuide;
-	AppCompatButton nextGuide;
+	private AppCompatButton backGuide;
+	private AppCompatButton nextGuide;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

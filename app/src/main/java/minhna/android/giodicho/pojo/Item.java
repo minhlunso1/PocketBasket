@@ -1,8 +1,8 @@
 package minhna.android.giodicho.pojo;
 
 public class Item {
-	long listId;
-	long _id;
+	private long listId;
+	private long _id;
 	private String title;
 	private int quantity;
 	private String description;

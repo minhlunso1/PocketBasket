@@ -29,7 +29,6 @@ import minhna.android.giodicho.utils.DimenUtils;
 
 public class MainActivity extends AppCompatActivity {
     public static FragmentManager manager;
-    private ActionBar actionBar;
     private Toolbar toolbar;
     private View drawerLeft;
     private SlidingRootNav slidingRootNav;
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     DragStateListener dragDrawerLeftListener = new DragStateListener() {
         @Override
         public void onDragStart() {
-            if (drawerLeft.getVisibility() == View.VISIBLE) ;
+            if (drawerLeft.getVisibility() == View.VISIBLE)
                 drawerLeft.setVisibility(View.GONE);
         }
 
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setPopupTheme(R.style.Toolbar_Popup);
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
         manager = getSupportFragmentManager();
 
         slidingRootNav = new SlidingRootNavBuilder(this)
@@ -167,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_tip:
                 toggleDrawerLeft();
                 startGuide();
+                break;
+            default:
                 break;
         }
     }

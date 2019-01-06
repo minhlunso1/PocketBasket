@@ -1,10 +1,6 @@
 package minhna.android.giodicho;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-
-import minhna.android.giodicho.resources.Constant;
-import minhna.android.giodicho.utils.AlarmUtils;
 
 /**
  * Created by Administrator on 20-Feb-16.

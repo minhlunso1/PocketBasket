@@ -1,7 +1,7 @@
 package minhna.android.giodicho.pojo;
 
 public class List {
-	long _id;
+	private long _id;
 	private String title;
 	private int meetQuantity;
 	private int quantity;
@@ -48,11 +48,11 @@ public class List {
 		this.color = color;
 	}
 
-	public long get_id() {
+	public long getId() {
 		return _id;
 	}
 
-	public void set_id(long _id) {
+	public void setId(long _id) {
 		this._id = _id;
 	}
 

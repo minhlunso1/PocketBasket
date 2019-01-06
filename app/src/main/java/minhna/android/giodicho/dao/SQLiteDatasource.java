@@ -29,7 +29,7 @@ public class SQLiteDatasource {
 		if (cursor.moveToFirst()) {
             do {
                 List tmp = new List();
-                tmp.set_id(cursor.getInt(cursor.getColumnIndex(helper.COL1_IdList))); 
+                tmp.setId(cursor.getInt(cursor.getColumnIndex(helper.COL1_IdList)));
                 tmp.setTitle(cursor.getString(cursor.getColumnIndex(helper.COL1_Title)));
                 tmp.setMeetQuantity(cursor.getInt(cursor.getColumnIndex(helper.COL1_MeetQuantity)));
                 tmp.setQuantity(cursor.getInt(cursor.getColumnIndex(helper.COL1_Quantity)));
