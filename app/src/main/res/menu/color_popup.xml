@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/bluePicker"
+        android:title="@string/blue"
+        android:icon="@drawable/blue_circle"
+       	></item>
+    
+    <item
+        android:id="@+id/purplePicker"
+        android:title="@string/purple"
+        android:icon="@drawable/purple_circle"
+       	></item>
+    
+    <item
+        android:id="@+id/cyanPicker"
+        android:title="@string/cyan"
+        android:icon="@drawable/cyan_circle"
+       	></item>
+    
+    <item
+        android:id="@+id/orangePicker"
+        android:title="@string/deepOrange"
+        android:icon="@drawable/orange_circle"
+       	></item>
+    
+    <item
+        android:id="@+id/limePicker"
+        android:title="@string/lime"
+        android:icon="@drawable/lime_circle"
+       	></item>
+    
+    <item
+        android:id="@+id/redPicker"
+        android:title="@string/red"
+        android:icon="@drawable/red_circle"
+       	></item>
+
+    <item
+        android:id="@+id/greenPicker"
+        android:title="@string/green"
+        android:icon="@drawable/green_circle"
+       	></item>
+
+    <item
+        android:id="@+id/yellowPicker"
+        android:title="@string/yellow"
+        android:icon="@drawable/yellow_circle"
+       	></item>
+    
+</menu>

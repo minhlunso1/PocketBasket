@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+version = "1.1.8"
+
+android {
+    compileSdkVersion rootProject.ext.targetSDK
+    buildToolsVersion rootProject.ext.buildToolVersion
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion rootProject.ext.targetSDK
+        versionCode 118
+        versionName version
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.android.support:support-v4:$appCompatVersion"
+}
+
+//apply from: "upload-jcenter.gradle"
+//apply from: "upload-maven.gradle"

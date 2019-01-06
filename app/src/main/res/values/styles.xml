@@ -1,0 +1,60 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_done_white_24dp</item>
+        
+        <item name="colorPrimary">@color/grey_bar</item>
+        <item name="colorPrimaryDark">#455a64</item>
+        <item name="colorAccent">#f8bbd0</item>
+
+        <item name = "android:windowBackground">@color/blue_grey_light</item>
+        
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!--  
+        <item name="android:actionModeBackground">@color/cyan</item>
+        <item name="actionModeBackground">@color/cyan</item>
+        -->
+    </style>
+    
+    <style name="Toolbar_Popup" parent="Theme.AppCompat.Light.DarkActionBar">
+	    <item name="android:textColorPrimary">@color/grey_bar</item>
+	    <item name="android:background">#fff</item>
+	</style>
+	
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#f8bbd0</item>
+        <item name="android:textColorPrimary">@color/grey_bar</item>
+        <item name="android:background">#fafafa</item>
+    </style>
+    
+    <style name="AppCompatAlertDialogStyle2" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#f8bbd0</item>
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:background">@color/grey_bar</item>
+    </style>
+    
+    <style name="FullHeightDialog" parent="AppCompatAlertDialogStyle2">
+   		<item name="android:windowNoTitle">false</item>
+	</style>
+
+    <style name="text_drawer_left" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/grey_bar</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>

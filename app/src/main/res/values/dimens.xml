@@ -1,0 +1,13 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="image_horizontal_center">120dp</dimen>
+    <dimen name="image_vertical_center">120dp</dimen>
+	<dimen name="text_detail_fragment_guide">25sp</dimen>
+	<dimen name="basket_adapter_height">60dp</dimen>
+	<dimen name="basket_adapter_padding_bottom">10dp</dimen>
+	<dimen name="item_adapter_height">45dp</dimen>
+    <dimen name="item_drawer_left_size">36dp</dimen>
+    
+</resources>

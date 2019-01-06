@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/option_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_recent_history" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/option_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2.7dp"
+        android:layout_marginLeft="25dp"
+        android:text="Large Text"
+        android:textColor="@color/grey_bar"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</LinearLayout>

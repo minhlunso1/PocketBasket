@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_adapter_height"
+        tools:context="minhNA.android.giodicho.BasketAdapter">
+        
+<FrameLayout 
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_adapter_height"
+    android:id="@+id/item_contain">
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Medium Text"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/itemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:paddingRight="10dp"
+        android:text="1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <ImageView
+        android:id="@+id/infoDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:paddingRight="40dp"
+        android:src="@android:drawable/ic_menu_info_details" />
+
+    <LinearLayout
+        android:id="@+id/colorLine"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:background="@color/green" >
+    </LinearLayout>
+
+</FrameLayout>
+
+</LinearLayout>

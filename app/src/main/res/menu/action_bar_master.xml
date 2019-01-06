@@ -1,0 +1,69 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    
+    <item
+        android:id="@+id/action_addList"
+        android:title="@string/addList"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_add_box_white_36dp"></item>
+    
+	<item
+	    android:id="@+id/more_option"
+	    android:title=""
+	    android:icon="@drawable/ic_arrow_drop_down_circle_white_24dp"
+	    app:showAsAction="always">
+	    <menu>
+			<item
+				android:id="@+id/action_delete_complete"
+				android:title="@string/delete_complete"
+				android:icon="@drawable/ic_delete_select"
+				app:showAsAction="always|withText" />
+	        <item
+		        android:id="@+id/action_delete_all"
+		        android:title="@string/delete_all"
+		        android:icon="@drawable/ic_delete_black_36dpp"
+		        app:showAsAction="always|withText" />
+			<item
+				android:id="@+id/action_sort_reverse"
+				android:title="@string/sort_reverse"
+				android:icon="@drawable/ic_list_black_24dp"
+				app:showAsAction="always|withText" />
+	    </menu>
+    </item>
+
+	<item
+		android:id="@+id/system_option"
+		android:title=""
+		android:icon="@drawable/ic_more_vert_white_24dp"
+		app:showAsAction="always">
+		<menu>
+			<item
+				android:id="@+id/action_tip"
+				android:title="@string/tip"
+				android:icon="@drawable/ic_help_outline_black_36dp"
+				app:showAsAction="always|withText"/>
+
+			<item
+				android:id="@+id/action_support"
+				android:title="@string/action_support"
+				android:icon="@drawable/ic_person_black_36dp"
+				app:showAsAction="always|withText" />
+
+			<item
+				android:id="@+id/action_get_more"
+				android:title="@string/get_more"
+				android:icon="@drawable/ic_extension_black_36dp"
+				app:showAsAction="always|withText" />
+
+			<item
+				android:id="@+id/action_about"
+				android:title="@string/action_about"
+				android:icon="@drawable/ic_launcher"
+				app:showAsAction="always|withText" />
+		</menu>
+	</item>
+
+
+</menu>
