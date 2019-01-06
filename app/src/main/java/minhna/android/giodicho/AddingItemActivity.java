@@ -34,7 +34,6 @@ public class AddingItemActivity extends AppCompatActivity {
 	private SQLiteDatasource datasource;
 
 	private Button addBtn;
-	private Toolbar toolbar;
 	private ActionBar actionBar;
 	private ViewGroup actionBarLayout;
 	private TextView listAddingQuantity;
@@ -48,7 +47,7 @@ public class AddingItemActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_adding_item);
 		
 		actionBarLayout = (ViewGroup) getLayoutInflater().inflate(R.layout.adding_item_action_bar,null);
-		toolbar= (Toolbar) findViewById(R.id.toolbar);
+		Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
 		toolbar.setPopupTheme(R.style.Toolbar_Popup);
 		setSupportActionBar(toolbar);
 		actionBar=getSupportActionBar();
@@ -109,8 +108,9 @@ public class AddingItemActivity extends AppCompatActivity {
 			case android.R.id.home:
 				datasource.updateListQuantity(listId, listQuantity);
 				finish();
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////	/////////////////////////////
 	public void addItem(View v){

@@ -74,7 +74,6 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 	private MainActivity mainActivity;
 	private ActionBar actionBar;
 	private PopupMenu popup;
-	private View actionModeView;
 	public static ActionMode actionMode;
 	private Dialog optionDialog;
 	private int optionDialogClass;
@@ -130,10 +129,9 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 				    popup.show();
 				    callPopupListener();
 					return true;
+				default:
+					return true;
 			}
-			
-			
-			return true;
 		}
 
 		@Override
@@ -154,7 +152,7 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 				listName=editTxtListName.getText().toString().trim();
 				if (listName.compareTo("")==0)
 					listName=resources.getString(R.string.listName);
-				datasource.update_title_color(idList, listName, color);
+				datasource.updateTitleColor(idList, listName, color);
 				if (bundle!=null)
 					bundle.putBoolean("isEditListMode", false);
 				actionBar.setTitle(listName);
@@ -202,7 +200,7 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 	
 		if (bundle!=null) {
 			isEditListMode = bundle.getBoolean("isEditListMode",false);
-			if (isEditListMode==true){
+			if (isEditListMode){
 				//edit list mode
 				getThingsFromMaster(bundle);
 				updateColorComponents();
@@ -300,12 +298,10 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 				Toast.makeText(mainActivity, R.string.emptyList, Toast.LENGTH_SHORT).show();
 			} else {
 				for (int i=0;i<list.size();i++){
-					if (list.get(i).isDone()){
-						if (datasource.deleteItem(list.get(i).get_id())>0){
-							listMeetQuantity--;
-							list.remove(i);
-							i--;
-						}
+					if (list.get(i).isDone() && datasource.deleteItem(list.get(i).get_id())>0){
+						listMeetQuantity--;
+						list.remove(i);
+						i--;
 					}
 				}
 				listQuantity=list.size();
@@ -517,7 +513,7 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 	}
 	
 	public void configEnterBtn(){
-		actionModeView = actionMode.getCustomView();
+		View actionModeView = actionMode.getCustomView();
 		editTxtListName = (EditText)actionModeView.findViewById(R.id.inputListName);
 		imm.showSoftInput(editTxtListName, 0);
 		editTxtListName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -577,6 +573,9 @@ public class DetailFragment extends Fragment implements PopupMenu.OnMenuItemClic
 				intent.putExtra("listId", idList);
 				intent.putExtra("listQuantity", listQuantity);
 				startActivity(intent);
+				break;
+			default:
+				return;
 		}
 	}
 	

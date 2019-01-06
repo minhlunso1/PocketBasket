@@ -51,7 +51,6 @@ public class OptionAdapter extends ArrayAdapter<DialogOption> {
 		DialogOption tmp = items.get(position);
 
 		if(tmp != null){
-			String uri = tmp.getIcon();
             context.getResources();
 			int id = Resources.getSystem().getIdentifier(tmp.getIcon(), "drawable", "android");  
             holder.icon.setImageResource(id);

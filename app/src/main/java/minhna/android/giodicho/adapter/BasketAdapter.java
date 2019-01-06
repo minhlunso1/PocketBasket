@@ -33,9 +33,9 @@ public class BasketAdapter extends ArrayAdapter<List> {
 	}
 
 	private class ViewHolder {
-		LinearLayout colorLine;
-		TextView listTitle, listUnit;
-		int animationCase;
+		private LinearLayout colorLine;
+		private TextView listTitle, listUnit;
+		private int animationCase;
 	}
 
 	@Override

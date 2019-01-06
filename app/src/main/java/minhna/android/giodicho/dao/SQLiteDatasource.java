@@ -104,7 +104,7 @@ public class SQLiteDatasource {
 		return newRowId;
 	}
 
-	public int update_title_color(long id, String title, String color) {//update two tables
+	public int updateTitleColor(long id, String title, String color) {//update two tables
 		ContentValues values = new ContentValues();
 		values.put(MyDBHelper.COL1_Title, title);
 		values.put(MyDBHelper.COL1_Color, color);
@@ -174,7 +174,7 @@ public class SQLiteDatasource {
 	
 	public int updateItemState(long id, boolean isDone) {
 		ContentValues values = new ContentValues();
-		values.put(MyDBHelper.COL2_State, isDone==true ? 1:0);
+		values.put(MyDBHelper.COL2_State, isDone ? 1:0);
 		String whereClause = MyDBHelper.COL2_IdItem + "=" + id;
 		int result = database.update(MyDBHelper.TABLE_NAME2, values,
 				whereClause, null);

@@ -27,9 +27,9 @@ public class ItemListAdapter extends ArrayAdapter<Item> {
 	}
 	
 	private class ViewHolder {
-		LinearLayout colorLine;
-		TextView itemTitle, itemQuantity;
-		ImageView infoDetail;
+		private LinearLayout colorLine;
+		private TextView itemTitle, itemQuantity;
+		private ImageView infoDetail;
 	}
 	
 	@Override
