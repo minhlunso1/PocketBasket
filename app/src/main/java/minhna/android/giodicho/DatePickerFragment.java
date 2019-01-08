@@ -26,7 +26,7 @@ public class DatePickerFragment extends DialogFragment
     private int day;
     private int month;
     private int year;
-    private static int flag;//api 18 bug android 4.3
+    private int flag;
     private String listName;
     private TimePickerFragment timeFragment;
 
@@ -36,51 +36,6 @@ public class DatePickerFragment extends DialogFragment
         bundle.putString("listName", listName);
         fragment.setArguments(bundle);
         return fragment;
-    }
-
-    public class TimePickerFragment extends DialogFragment
-            implements TimePickerDialog.OnTimeSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
-
-            return new TimePickerDialog(getActivity(), this, hour, minute,
-                    DateFormat.is24HourFormat(getActivity()));
-        }
-
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
-            String dateInString = day+"-"+month+"-"+year+" "+hourOfDay+":"+minute;
-            Date date;
-            try {
-                date = sdf.parse(dateInString);
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTime(date);
-                long time = calendar.getTimeInMillis();
-                Context context = getContext();
-                if (time<System.currentTimeMillis())
-                    Toast.makeText(context, context.getString(R.string.Not_allowed_past), Toast.LENGTH_SHORT).show();
-                else {
-                    if (flag==0) {
-                        SharedPreferences sharedPreferences = context.getSharedPreferences(Constant.PREF_NAME, context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putLong("reminder", time);
-                        editor.putString("reminderName", listName);
-                        editor.apply();
-                        new AlarmUtils().setAnnouncement(context.getApplicationContext(), 1, context.getString(R.string.Do_not_forget), listName, Constant.PLAY_APP, time);
-                        flag = 1;
-                        Toast.makeText(context, context.getString(R.string.Setup_reminder_done), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-        }
     }
 
     @Override
@@ -100,9 +55,32 @@ public class DatePickerFragment extends DialogFragment
         this.listName = getArguments().getString("listName");
         flag = 0;
         if (timeFragment==null) {
-            timeFragment = new TimePickerFragment();
+            timeFragment = new TimePickerFragment(this);
             timeFragment.show(getActivity().getSupportFragmentManager(), "timePicker");
         }
     }
 
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public String getListName() {
+        return listName;
+    }
 }
